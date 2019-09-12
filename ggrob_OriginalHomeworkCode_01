@@ -4,7 +4,7 @@ author: "Gianna Grob"
 date: "9/9/2019"
 output: html_document
 ---
-Hi, This is Laura
+
 #CHALLENGE 1
 
 ```{r setup, include=FALSE}
