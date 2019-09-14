@@ -1,0 +1,124 @@
+---
+title: "ggrob_FinalHomeworkCode_01"
+author: "Gianna Grob"
+date: "9/14/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#CHALLENGE 1
+
+```{r setup, include=FALSE}
+install.packages("stringr") #Install stringr package
+library(stringr) #Load stringr package
+
+v <- c("Stately", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead,", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed.")     
+v #Create vector with seperate word strings.
+
+x <- v[c(3,6,9,12,15,18,21)]
+x #Creates vector with every third word extracted.
+
+#Not sure how to use str_split to extract every third word
+```
+
+
+#CHALLENGE 2
+```{r}
+m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE)
+m #Create matrix with numbers 1 through 80 in 10 columns.
+
+x <- m[ ,c(2,3,6)]
+x #Create matrix with only columns 2, 3, and 6.
+
+x <- m[c(6:8), ]
+x #Create matrix with only rows 6, 7, and 8.
+
+x <- m[c(2:6),c(2:9)]
+x #Extract elements from row 2, column 2, all the way through row 6, column 9.
+```
+
+#CHALLENGE 3
+```{r}
+a <- array(400:1, dim=c(5,5,4,4))
+a #Create array that is descending 400 to 1 that is 5 x 5 x 4 x 4.
+
+a[1, 1, 1, 2] #Returns: [1] 300
+
+a[2, 3, 2, ] #Returns: [1] 364 264 164  64
+
+a[1:5, 1:5, 3, 3] #Returns:     
+     [,1] [,2] [,3] [,4] [,5]
+[1,]  150  145  140  135  130
+[2,]  149  144  139  134  129
+[3,]  148  143  138  133  128
+[4,]  147  142  137  132  127
+[5,]  146  141  136  131  126
+
+```
+
+#CHALLENGE 4
+```{r}
+#Creating list of primate taxonomy 
+
+a <- list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+b <- list("Lemuroidea", a)
+b #To be used under Strepsirhini list
+c <- list("Lorisidae", "Galagidae")
+d <- list("Lorisoidea", c)
+d #To be used under Strepirhini list 
+e <- list("Strepsirhini", d, b)
+e #To be used in final list under Primates
+f <- list("Tarsiidae")
+g <- list("Tarsioidea", f)
+g #To be used under Haplorhini list
+h <- list("Cercopithecidae", "Hylobatidae", "Hominidae")
+i <- list("Catarrhini", h)
+i #To be used under Anthropoidea list
+j <- list("Cebidae", "Atelidae", "Pitheciidae")
+k <- list("Platyrrhini", j)
+k #To be used under Anthropoidea list
+l <- list("Anthropoidea", k, i)
+l #To be used under Haplorhini list
+m <- list("Haplorhini", l, g)
+m #To be used in final list under Primates
+n <- list("Primates", m, e)
+n #Create final list with all subgroups under Primates. 
+
+#Very long way of creating this list, but it functions properly.
+```
+
+#CHALLENGE 5
+```{r}
+A = matrix(c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow = 5, ncol = 3, byrow = TRUE)
+A #Create 5 x 3 matrix with provided values
+
+df <- data.frame(A) 
+df #Create a data frame out of matrix "A"
+
+df$X2 #See what is in column X2
+class(df$X2) #See what class column X2 is; it is numeric 
+
+x <- as.logical(df$X2) 
+x #Make data in column X2 logical-valued, returns:[1] FALSE  TRUE  TRUE FALSE FALSE
+
+df$X3 #See what is in column X3
+class(df$X3) #See what class column X3 is; it is numeric 
+
+y <- as.factor(df$X3) 
+y #Make data in column X3 factor-valued, returns: 
+[1] 1 2 1 1 2
+Levels: 1 2
+
+str(x) 
+str(y) #Show that the columns are now logical and factor based.
+```
+
+#5 Challenges Faced
+1) Splitting the vector for every third element on Challenge 1.
+2) Extracting the elements from row 2, column 2 to row 6, column 9 and assign them to the variable x in Challaenge 2.
+3) Not knowing an easier way to make the list in Challenge 4.
+4) Coercing the second column to be logical-valued and factor-valued in Challenge 5.
+5) Making the logical and factor valued columns show up as such with str(). 
